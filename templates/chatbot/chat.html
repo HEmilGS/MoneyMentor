@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="response.js" defer></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylec.css') }}">
+    <style>@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      input {
+        width: 400px; /* Ancho deseado en píxeles o cualquier otra unidad de medida */
+        height: 40px; /* Altura deseada en píxeles o cualquier otra unidad de medida */
+        
+      }
+      input::placeholder {
+        font-size: 16px; /* Tamaño de fuente deseado para el placeholder */
+      }
+
+      body {
+        background: white; 
+        text-align:center;
+        margin-left: 500px;
+        margin-right: 500px;
+      }
+      .container {
+        --light-color: #ffffff; /* Cambiamos el color de fondo a blanco */
+        height: 680px;
+        width: 390px;
+        background: var(--light-color);
+        position: fixed;
+        bottom: 50px;
+        right: 10px;
+        box-shadow: 0px 0px 15px 0px black;
+      }
+      .chat-header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+        background-color: #8b0000; /* Cambiamos el color de fondo a rojo oscuro */
+        color: var(--light-color);
+        font-size: 1.5rem;
+      }
+      
+      .chat-header .logo {
+        height: 35px;
+        width: 35px;
+        box-shadow: 0px 0px 10px 0px black;
+        border-radius: 50%;
+      }
+      .chat-header img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+      .chat-header .title {
+        padding-left: 10px;
+      }
+      .chat-body {
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 8px 10px;
+        align-items: flex-end;
+        overflow-y: auto;
+      }
+      .chat-input {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid #ccc;
+      }
+      .input-sec {
+        flex: 9;
+      }
+      .send {
+        flex: 1;
+        padding-right: 4px;
+      }
+      #txtInput {
+        line-height: 30px;
+        padding: 8px 10px;
+        border: none;
+        outline: none;
+        caret-color: white;
+        font-size: 1rem;
+        width: 100%;
+      }
+      
+      .chatbot-message,
+      .user-message {
+        padding: 8px;
+        background: #ffb6c1; /* Cambiamos el color de fondo a rojo oscuro */
+        margin: 5px;
+        width: max-content;
+        border-radius: 10px 3px 10px 10px;
+        width: 300px;
+        height: 40px;
+        align-items: center;
+      }
+      .chatbot-message {
+        background: #ffb6c1; /* Cambiamos el color de fondo a rosa claro */
+        color: var(--light-color);
+        align-self: flex-start;
+        border-radius: 10px 10px 3px 10px;
+      }
+      </style>
+    <!-- Rutas a los archivos JavaScript -->
+    <script src="{{ url_for('static', filename='responsec.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='appc.js') }}" defer></script>
+</head>
+<body>
+    <div id="chat">
+        <div class="chat-header">
+            <div class="logo">
+                <img src="https://www.webquestcreator2.com/majwq/files/files_user/76036/1_fZsdZisozTZbM6AaPQKI4Q.gif" alt="Logo">
+            </div>
+            <div class="title">AI invest</div>
+        </div>
+        <div class="chat-body" id="chat-log"></div>
+        <div class="chat-input">
+            <form id="user-form" action="/ask" method="post">
+                <input type="text" id="user-message" name="user_message1" placeholder="Ingresa cuanto dinero vas a invertir y en cuanto tiempo" autocomplete="off">
+                <button type="submit">
+                    <img src="data:image/png;base64,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" alt="send" width="50" height="50" align="right">
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const chatLog = document.getElementById('chat-log');
+        const userForm = document.getElementById('user-form');
+        const userMessageInput = document.getElementById('user-message');
+
+        userForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = userMessageInput.value;
+            userMessageInput.value = '';
+            chatLog.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+            const response = await fetch('/ask', {
+                method: 'POST',
+                body: new URLSearchParams({ user_message: userMessage }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+            const assistantResponse = await response.text();
+            chatLog.innerHTML += `<div><strong>Chatbot:</strong> ${assistantResponse}</div>`;
+        });
+    </script>
+</body>
+</html>

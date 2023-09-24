@@ -1,0 +1,100 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 39rem;
+}.info4-MuR {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.info4-MuR .banorte-4-iEB {
+  width: 39rem;
+  height: 4.7rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V {
+  box-sizing: border-box;
+  padding: 3.9rem 0rem 33.1rem 0rem;
+  width: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #cd1111 -0%, #d1baba 80.64%);
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-cdmh-yvo {
+  margin: 0rem 16.3rem 3rem 0rem;
+  box-sizing: border-box;
+  padding: 1.6rem 2.75rem 1.9rem 7.85rem;
+  width: 41rem;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 74.3rem;
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-cdmh-yvo .fondo-banorte-dlares-ntedls-corto-plazo-1-aos-rjh {
+  margin: 0rem 0.05rem 0.2rem 0rem;
+  max-width: 14.6rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-cdmh-yvo .descarga-2-vDm {
+  margin: 0.3rem 0.55rem 0rem 0rem;
+  width: 7.4rem;
+  height: 8.2rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-cdmh-yvo .inversin-mnima-50-ddy {
+  margin-bottom: 0.1rem;
+  max-width: 7.8rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-mkpd-XDZ {
+  box-sizing: border-box;
+  padding: 3.6rem 1.95rem 5.6rem 1.95rem;
+  width: 34.7rem;
+  background-color: #d9d9d9;
+  border-radius: 5rem;
+  flex-shrink: 0;
+}
+.info4-MuR .auto-group-hyet-r5V .auto-group-mkpd-XDZ .este-perfil-presenta-un-riesgo-bajo-dirigido-a-inversionistas-que-buscan-estabilidad-y-un-mejor-resguardo-del-valor-del-peso-respecto-al-dlar-otro-punto-a-favor-es-que-presenta-una-liquidez-del-100-eZ5 {
+  max-width: 21.4rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+}
