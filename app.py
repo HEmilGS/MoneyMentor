@@ -3,7 +3,7 @@ import openai
 
 app = Flask(__name__, static_folder='static')
 
-API_KEY = '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'
+
 openai.api_key = API_KEY
 
 chat_log = []
